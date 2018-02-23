@@ -20,7 +20,9 @@ set incsearch
 
 """ line numbers
 set number
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey
+highlight LineNr cterm=NONE ctermfg=DarkGrey
+set cursorline
+highlight CursorLine cterm=NONE
 
 set belloff=all     " no noise please
 
