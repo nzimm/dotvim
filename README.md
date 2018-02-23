@@ -1,0 +1,2 @@
+# dotvim
+Vim configuration structure
