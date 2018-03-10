@@ -24,6 +24,8 @@ highlight LineNr cterm=NONE ctermfg=DarkGrey
 set cursorline
 highlight CursorLine cterm=NONE
 
-set belloff=all     " no noise please
+set scrolloff=4     " lines displayed below cursor when scrolling
+
+set belloff=all     " mute
 
 set noswapfile      " disables .swp files
