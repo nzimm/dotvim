@@ -26,7 +26,6 @@ highlight LineNr cterm=NONE ctermfg=DarkGrey
 set cursorline
 highlight CursorLine cterm=NONE
 
-<<<<<<< HEAD
 set scrolloff=3     " display 3 lines above/below cursor
 
 set belloff=all     " mute
