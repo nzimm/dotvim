@@ -28,6 +28,7 @@ highlight CursorLine cterm=NONE
 
 set scrolloff=3     " display 3 lines above/below cursor
 
-set belloff=all     " mute
+"set belloff=all     " mute
 
 set noswapfile      " disables .swp files
+
