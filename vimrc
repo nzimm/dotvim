@@ -20,6 +20,8 @@ set wrapmargin=0
 """ search behavior
 set hlsearch
 set incsearch
+highlight Search ctermbg=Yellow
+highlight Search ctermfg=Black
 
 """ line numbers
 set number
@@ -27,8 +29,9 @@ highlight LineNr cterm=NONE ctermfg=DarkGrey
 set cursorline
 highlight CursorLine cterm=NONE
 
-set scrolloff=4     " lines displayed below cursor when scrolling
+set scrolloff=3     " display 3 lines above/below cursor
 
-set belloff=all     " mute
+"set belloff=all     " mute
 
 set noswapfile      " disables .swp files
+
