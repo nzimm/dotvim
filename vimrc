@@ -1,7 +1,10 @@
+""" setup pathogen
+execute pathogen#infect()
+let g:jsx_ext_required = 0 "Allow JSX in normal JS files
+
 set nocompatible    " specify config to vim (not vi)
 syntax on           " enable syntax highlighting
 filetype plugin on  " detect filetypes
-
 
 """ whitespace
 set expandtab
