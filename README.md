@@ -27,4 +27,9 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
 Now enable pathogen, by adding this line to ~/.vimrc
-`execute pathogen#infect()`
+```execute pathogen#infect()```
+Run the following two commands to update submodules for pathogen
+```
+git submodule init
+git submodule update
+```
