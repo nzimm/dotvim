@@ -42,3 +42,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
+
+""" Disable modelines, see CVE-2019-12735
+set nomodeline
+set modelines=0
