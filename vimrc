@@ -1,6 +1,3 @@
-""" setup pathogen
-execute pathogen#infect()
-let g:jsx_ext_required = 0 "Allow JSX in normal JS files
 
 set nocompatible    " specify config to vim (not vi)
 syntax on           " enable syntax highlighting
@@ -20,6 +17,7 @@ set wrapmargin=0
 """ search behavior
 set hlsearch
 set incsearch
+set smartcase
 highlight Search ctermbg=Yellow
 highlight Search ctermfg=Black
 
@@ -30,9 +28,7 @@ set cursorline
 highlight CursorLine cterm=NONE
 
 set scrolloff=3     " display 3 lines above/below cursor
-
-"set belloff=all     " mute
-
+set belloff=all     " mute
 set noswapfile      " disables .swp files
 
 """ More natural split navigation & opening
@@ -46,3 +42,13 @@ set splitright
 """ Disable modelines, see CVE-2019-12735
 set nomodeline
 set modelines=0
+
+""" Plugins
+" install vim-plug (curl may require `--insecure` if behind an HTTP proxy)
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+source ~/.vim/plugins.vim

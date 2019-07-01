@@ -19,17 +19,6 @@ git submodule update
 ```
 
 # Dependencies
-I use [pathogen](https://github.com/tpope/vim-pathogen) to enable syntax
-highlighting. The following quick-and-dirty install works, but any additional
-plugins must be manually installed.
-```
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-```
-Now enable pathogen, by adding this line to ~/.vimrc
-```execute pathogen#infect()```
-Run the following two commands to update submodules for pathogen
-```
-git submodule init
-git submodule update
-```
+I use the plugin manager [vim-plug](https://github.com/junegunn/vim-plug), which
+should be dynamically 
+all my plugins are stored under `~/.vim/plugged/`. 
