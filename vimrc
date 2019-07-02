@@ -1,9 +1,8 @@
-
 set nocompatible    " specify config to vim (not vi)
 syntax on           " enable syntax highlighting
 filetype plugin on  " detect filetypes
 
-""" whitespace
+""" default whitespace, overwritten by specific filetype settings
 set expandtab
 set shiftwidth=4
 set softtabstop=4
@@ -27,11 +26,13 @@ highlight LineNr cterm=NONE ctermfg=DarkGrey
 set cursorline
 highlight CursorLine cterm=NONE
 
+set laststatus=2    " enable status for itchyny/lightline plugin
+set noshowmode      " disable redundancy for lightline
 set scrolloff=3     " display 3 lines above/below cursor
 set belloff=all     " mute
 set noswapfile      " disables .swp files
 
-""" More natural split navigation & opening
+""" more natural split navigation & opening
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -43,8 +44,7 @@ set splitright
 set nomodeline
 set modelines=0
 
-""" Plugins
-" install vim-plug (curl may require `--insecure` if behind an HTTP proxy)
+""" Install & run vim-plug (curl may require `--insecure` if behind an HTTP proxy)
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -52,3 +52,23 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 source ~/.vim/plugins.vim
+
+""" ALE plugin
+" keep the sign gutter open
+"let g:ale_sign_column_always = 1
+
+" only lint when buffer is saved
+let g:ale_lint_on_text_changed = 'never'
+
+" don't lint when file is loaded
+let g:ale_lint_on_enter = 0
+
+let g:ale_linters = {
+\   'python': ['flake8', 'pylint'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   }
+
+let g:ale_fix_on_save = 1
