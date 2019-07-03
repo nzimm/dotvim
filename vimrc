@@ -16,6 +16,7 @@ set wrapmargin=0
 """ search behavior
 set hlsearch
 set incsearch
+set ignorecase
 set smartcase
 highlight Search ctermbg=Yellow
 highlight Search ctermfg=Black
@@ -53,9 +54,19 @@ endif
 
 source ~/.vim/plugins.vim
 
-""" ALE plugin
-" keep the sign gutter open
-"let g:ale_sign_column_always = 1
+""" lightline
+let g:lightline = {
+\   'colorscheme': 'jellybeans',
+\   'active': {
+\       'left': [ [ 'mode', 'paste' ],
+\                 [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+\   },
+\   'component_function': {
+\       'gitbranch': 'fugitive#head'
+\   },
+\}
+
+""" ale
 
 " only lint when buffer is saved
 let g:ale_lint_on_text_changed = 'never'
@@ -64,8 +75,10 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 let g:ale_linters = {
-\   'python': ['flake8', 'pylint'],
+\   'python': ['pylint'],
 \}
+
+let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],

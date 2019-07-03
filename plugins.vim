@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
+Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 
 call plug#end()
