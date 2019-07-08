@@ -68,17 +68,20 @@ let g:lightline = {
 
 """ ale
 
+" disable highlighting
+let g:ale_set_highlights = 0
+
 " only lint when buffer is saved
 let g:ale_lint_on_text_changed = 'never'
 
 " don't lint when file is loaded
-let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_enter = 0
 
 let g:ale_linters = {
 \   'python': ['pylint'],
 \}
 
-let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
+let g:ale_python_pylint_options = '--rcfile ~/.pylintrc --load-plugins=pylint_django'
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
