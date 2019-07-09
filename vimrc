@@ -84,7 +84,7 @@ let g:ale_linters = {
 \   'python': ['pylint'],
 \}
 
-let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
+let g:ale_python_pylint_options = '--rcfile ~/.pylintrc --load-plugins=pylint_django'
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
