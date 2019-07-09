@@ -68,11 +68,17 @@ let g:lightline = {
 
 """ ale
 
+" unset default gutter color
+highlight SignColumn ctermbg=NONE
+
+" disable highlighting
+let g:ale_set_highlights = 0
+
 " only lint when buffer is saved
 let g:ale_lint_on_text_changed = 'never'
 
 " don't lint when file is loaded
-let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_enter = 0
 
 let g:ale_linters = {
 \   'python': ['pylint'],
