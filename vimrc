@@ -54,6 +54,7 @@ endif
 
 source ~/.vim/plugins.vim
 
+
 """ lightline
 let g:lightline = {
 \   'colorscheme': 'jellybeans',
@@ -66,8 +67,12 @@ let g:lightline = {
 \   },
 \}
 
-""" ale
 
+""" NERDTree
+map <F2> :NERDTreeToggle<CR>
+
+
+""" ale
 " unset default gutter color
 highlight SignColumn ctermbg=NONE
 
@@ -84,7 +89,7 @@ let g:ale_linters = {
 \   'python': ['pylint'],
 \}
 
-let g:ale_python_pylint_options = '--rcfile ~/.pylintrc --load-plugins=pylint_django'
+let g:ale_python_pylint_options = '--rcfile ~/.pylintrc --load-plugins pylint_django'
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
