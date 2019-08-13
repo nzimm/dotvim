@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'scrooloose/nerdtree'
