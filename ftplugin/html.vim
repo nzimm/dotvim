@@ -1,3 +1,4 @@
+"set filetype=htmldjango
 setlocal expandtab
 setlocal tabstop=2
 setlocal softtabstop=2

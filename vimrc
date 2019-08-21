@@ -2,6 +2,9 @@ set nocompatible    " specify config to vim (not vi)
 syntax on           " enable syntax highlighting
 filetype plugin on  " detect filetypes
 
+""" help identify unique filetypes
+au BufNewFile,BufFilePre,BufRead *.html set filetype=htmldjango
+
 """ default whitespace, overwritten by specific filetype settings
 set expandtab
 set shiftwidth=4
@@ -42,8 +45,8 @@ set splitbelow
 set splitright
 
 """ Disable modelines, see CVE-2019-12735
-set nomodeline
-set modelines=0
+"set nomodeline
+"set modelines=0
 
 """ Install & run vim-plug (curl may require `--insecure` if behind an HTTP proxy)
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -88,6 +91,7 @@ let g:ale_python_pylint_options = '--rcfile ~/.pylintrc --load-plugins=pylint_dj
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'go': ['gofmt'],
 \   }
 
 let g:ale_fix_on_save = 1
