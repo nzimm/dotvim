@@ -5,11 +5,15 @@ filetype plugin on  " detect filetypes
 """ help identify unique filetypes
 au BufNewFile,BufFilePre,BufRead *.html set filetype=htmldjango
 
+""" leader key customizations
+set showcmd
+let mapleader = ' '
+
 """ default whitespace, overwritten by specific filetype settings
 set expandtab
 set shiftwidth=4
 set softtabstop=4
-set autoindent
+"set autoindent
 
 """ wrapping behavior
 set linebreak       " visually wrap lines
@@ -57,6 +61,7 @@ endif
 
 source ~/.vim/plugins.vim
 
+
 """ lightline
 let g:lightline = {
 \   'colorscheme': 'jellybeans',
@@ -69,8 +74,12 @@ let g:lightline = {
 \   },
 \}
 
-""" ale
 
+""" NERDTree
+map <F2> :NERDTreeToggle<CR>
+
+
+""" ale
 " unset default gutter color
 highlight SignColumn ctermbg=NONE
 
@@ -84,10 +93,12 @@ let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 
 let g:ale_linters = {
-\   'python': ['pylint'],
+\   'python': ['pylint', 'flake8'],
+\   'go': ['golint', 'gofmt'],
 \}
 
-let g:ale_python_pylint_options = '--rcfile ~/.pylintrc --load-plugins=pylint_django'
+let g:ale_python_pylint_options = '--rcfile ~/.pylintrc
+                                 \ --load-plugins pylint_django'
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -95,3 +106,29 @@ let g:ale_fixers = {
 \   }
 
 let g:ale_fix_on_save = 1
+
+
+"""vim-go
+map <C-m> :cnext<CR>
+map <C-n> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+" write the buffer when calling GoBuild, skips having to save manually
+set autowrite
+
+" tell :cnext and :cprevious to select errors from quickfix
+let g:go_list_type = "quickfix"
+
+" run :GoBuild or :GoTestCompile depending on filetype
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
