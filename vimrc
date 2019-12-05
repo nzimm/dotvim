@@ -30,9 +30,9 @@ highlight Search ctermfg=Black
 
 """ line numbers
 set number
-highlight LineNr cterm=NONE ctermfg=DarkGrey
-set cursorline
-highlight CursorLine cterm=NONE
+highlight LineNr cterm=NONE term=NONE ctermfg=DarkGrey
+set nocursorline
+"highlight CursorLine cterm=NONE
 
 set laststatus=2    " enable status for itchyny/lightline plugin
 set noshowmode      " disable redundancy for lightline
@@ -83,6 +83,9 @@ map <F2> :NERDTreeToggle<CR>
 " unset default gutter color
 highlight SignColumn ctermbg=NONE
 
+" keep gutter open
+"let g:ale_sign_column_always = 1
+
 " disable highlighting
 let g:ale_set_highlights = 0
 
@@ -97,8 +100,7 @@ let g:ale_linters = {
 \   'go': ['golint', 'gofmt'],
 \}
 
-let g:ale_python_pylint_options = '--rcfile ~/.pylintrc
-                                 \ --load-plugins pylint_django'
+let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -112,6 +114,7 @@ let g:ale_fix_on_save = 1
 map <C-m> :cnext<CR>
 map <C-n> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
+autocmd FileType go nmap <leader><TAB>  :GoAlternate<CR>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
