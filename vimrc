@@ -1,3 +1,14 @@
+""" install & run vim-plug (curl may require `--insecure` if behind an HTTP proxy)
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+""" enable plugins
+source ~/.vim/plugins.vim
+
+""" general settings
 set nocompatible    " specify config to vim (not vi)
 syntax on           " enable syntax highlighting
 filetype plugin on  " detect filetypes
@@ -56,15 +67,6 @@ set splitright
 """ Disable modelines, see CVE-2019-12735
 "set nomodeline
 "set modelines=0
-
-""" Install & run vim-plug (curl may require `--insecure` if behind an HTTP proxy)
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-source ~/.vim/plugins.vim
 
 
 """ lightline
