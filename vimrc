@@ -2,6 +2,11 @@ set nocompatible    " specify config to vim (not vi)
 syntax on           " enable syntax highlighting
 filetype plugin on  " detect filetypes
 
+""" set gruvbox dark colorscheme & transparent background
+colorscheme gruvbox
+set background=dark
+highlight Normal guibg=NONE ctermbg=NONE
+
 """ help identify unique filetypes
 au BufNewFile,BufFilePre,BufRead *.html set filetype=htmldjango
 
@@ -25,8 +30,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-highlight Search ctermbg=Yellow
-highlight Search ctermfg=Black
+"highlight Search ctermbg=Black
+"highlight Search ctermfg=Yellow
 
 """ line numbers
 set number
@@ -64,7 +69,7 @@ source ~/.vim/plugins.vim
 
 """ lightline
 let g:lightline = {
-\   'colorscheme': 'jellybeans',
+\   'colorscheme': 'gruvbox',
 \   'active': {
 \       'left': [ [ 'mode', 'paste' ],
 \                 [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -77,6 +82,10 @@ let g:lightline = {
 
 """ NERDTree
 map <F2> :NERDTreeToggle<CR>
+
+
+""" vim-markdown
+let g:vim_markdown_folding_disabled = 1
 
 
 """ ale
@@ -110,7 +119,12 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 
-"""vim-go
+""" python-mode
+" color column at max line length
+let g:pymode_options_colorcolumn = 0
+
+
+""" vim-go
 map <C-m> :cnext<CR>
 map <C-n> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
