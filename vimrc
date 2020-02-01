@@ -9,9 +9,10 @@ endif
 source ~/.vim/plugins.vim
 
 """ general settings
-set nocompatible    " specify config to vim (not vi)
-syntax on           " enable syntax highlighting
-filetype plugin on  " detect filetypes
+set nocompatible                " specify config to vim (not vi)
+syntax on                       " enable syntax highlighting
+filetype plugin on              " detect filetypes
+set backspace=indent,eol,start  " make backspace act normally
 
 """ set gruvbox dark colorscheme & transparent background
 colorscheme gruvbox
