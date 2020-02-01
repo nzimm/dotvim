@@ -46,8 +46,8 @@ set smartcase
 
 """ line numbers
 set number
-highlight LineNr cterm=NONE term=NONE ctermfg=DarkGrey
 set nocursorline
+"highlight LineNr cterm=NONE term=NONE ctermfg=LightGrey
 "highlight CursorLine cterm=NONE
 
 set laststatus=2    " enable status for itchyny/lightline plugin
@@ -91,8 +91,12 @@ let g:vim_markdown_folding_disabled = 1
 
 
 """ ale
-" unset default gutter color
-highlight SignColumn ctermbg=NONE
+" unset default gutter background color
+highlight SignColumn guibg=NONE ctermbg=NONE
+
+" unset warning & error background color
+highlight ALEErrorSign guibg=NONE ctermbg=NONE
+highlight ALEWarningSign guibg=NONE ctermbg=NONE
 
 " keep gutter open
 "let g:ale_sign_column_always = 1
