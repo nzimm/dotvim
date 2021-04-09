@@ -9,6 +9,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -21,7 +24,6 @@ call plug#end()
 "Plug 'junegunn/goyo.vim'
 "Plug 'mattn/emmet-vim'
 "Plug 'morhetz/gruvbox'
-"Plug 'pangloss/vim-javascript'
 "Plug 'reedes/vim-colors-pencil'
 "Plug 'scrooloose/nerdtree'
 "Plug 'terryma/vim-multiple-cursors'

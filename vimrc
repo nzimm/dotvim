@@ -9,6 +9,7 @@ endif
 source ~/.vim/plugins.vim
 
 """ general settings
+set paste
 set nocompatible                " specify config to vim (not vi)
 syntax on                       " enable syntax highlighting
 filetype plugin on              " detect filetypes
@@ -114,13 +115,16 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {
 \   'python': ['pylint', 'flake8'],
 \   'go': ['golint', 'gofmt'],
-\}
+\   }
 
 let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'go': ['gofmt'],
+\   'typescript': ['prettier'],
+\   'html': ['prettier'],
+\   'css': ['prettier'],
 \   }
 
 let g:ale_fix_on_save = 1
@@ -156,3 +160,20 @@ function! s:build_go_files()
 endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+""" x86 nasm filetype
+autocmd BufNewFile,BufRead *.nasm set filetype=nasm
+
+""" JavaScript/TypeScript
+" if syntax in large files is getting out of sync
+"autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+"autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+" Prettier and ESLint
+"if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+"  let g:coc_global_extensions += ['coc-prettier']
+"endif
+"
+"if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+"  let g:coc_global_extensions += ['coc-eslint']
+"endif
